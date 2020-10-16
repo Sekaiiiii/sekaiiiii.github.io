@@ -5,17 +5,17 @@
   
 
   
-  <title>Git基础学习 | Learning Notes</title>
+  <title>Git应用场景学习 | Learning Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Git本地基础操作 git add [file] git commit [-m ‘message’] git rm [file] git diff [file] git reset –hard [commit_id] reset   git log 查看提交日志 简化输出添加 --pretty&#x3D;oneline 查看分支图 --graph 仅显示SHA-1的前几个字符，而非所有的40个字符--abb">
+  <meta name="description" content="Git应用场景学习 这部分blog记录一些Git常用的应用场景以及相关的命令，持续更新。  远程创建分支，关联本地分支到远程分支 git remote add remote_git_name remote_git_address 添加远程库，为远程库命名   git branch -d local_branch_name 创建并切换至本地分支   git push remote_git_name">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git基础学习">
-<meta property="og:url" content="http://sekaiiiii.github.io/2020/09/22/Git%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="Git应用场景学习">
+<meta property="og:url" content="http://sekaiiiii.github.io/2020/10/16/Git%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Learning Notes">
-<meta property="og:description" content="Git本地基础操作 git add [file] git commit [-m ‘message’] git rm [file] git diff [file] git reset –hard [commit_id] reset   git log 查看提交日志 简化输出添加 --pretty&#x3D;oneline 查看分支图 --graph 仅显示SHA-1的前几个字符，而非所有的40个字符--abb">
+<meta property="og:description" content="Git应用场景学习 这部分blog记录一些Git常用的应用场景以及相关的命令，持续更新。  远程创建分支，关联本地分支到远程分支 git remote add remote_git_name remote_git_address 添加远程库，为远程库命名   git branch -d local_branch_name 创建并切换至本地分支   git push remote_git_name">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-09-22T12:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-29T07:42:16.254Z">
+<meta property="article:published_time" content="2020-10-16T08:55:00.000Z">
+<meta property="article:modified_time" content="2020-10-16T09:07:15.313Z">
 <meta property="article:author" content="XQ">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Git学习" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Git应用场景学习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/09/22/Git%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2020-09-22T12:00:00.000Z" itemprop="datePublished">2020-09-22</time>
+    <a href="/2020/10/16/Git%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-10-16T08:55:00.000Z" itemprop="datePublished">2020-10-16</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Git基础学习
+      Git应用场景学习
     </h1>
   
 
@@ -89,136 +89,74 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Git本地基础操作"><a href="#Git本地基础操作" class="headerlink" title="Git本地基础操作"></a>Git本地基础操作</h3><ul>
-<li>git add [file]</li>
-<li>git commit [-m ‘message’]</li>
-<li>git rm [file]</li>
-<li>git diff [file]</li>
-<li>git reset –hard [commit_id]<ul>
-<li>reset</li>
+        <h1 id="Git应用场景学习"><a href="#Git应用场景学习" class="headerlink" title="Git应用场景学习"></a>Git应用场景学习</h1><ul>
+<li>这部分blog记录一些Git常用的应用场景以及相关的命令，持续更新。</li>
+</ul>
+<h2 id="远程创建分支，关联本地分支到远程分支"><a href="#远程创建分支，关联本地分支到远程分支" class="headerlink" title="远程创建分支，关联本地分支到远程分支"></a>远程创建分支，关联本地分支到远程分支</h2><ul>
+<li><code>git remote add remote_git_name remote_git_address</code><ul>
+<li>添加远程库，为远程库命名</li>
 </ul>
 </li>
-<li>git log<ul>
-<li>查看提交日志</li>
-<li>简化输出添加 <code>--pretty=oneline</code></li>
-<li>查看分支图 <code>--graph</code></li>
-<li>仅显示SHA-1的前几个字符，而非所有的40个字符<code>--abbrev-commit</code></li>
-<li><a href="https://www.cnblogs.com/bellkosmos/p/5923439.html" target="_blank" rel="noopener">https://www.cnblogs.com/bellkosmos/p/5923439.html</a> git log 命令全解析</li>
+<li><code>git branch -d local_branch_name</code><ul>
+<li>创建并切换至本地分支</li>
 </ul>
 </li>
-<li>git reflog<ul>
-<li>查看命令历史</li>
+<li><code>git push remote_git_name local_branch_name:remote_branch_name</code><ul>
+<li>将本地分支推送至远程分支上，如果没有指定remote_branch_name则推送该分支默认关联的分支</li>
+<li>如果在git上不存在名为remote_branch_name的分支，则自动创建名为remote_branch_name的分支</li>
 </ul>
 </li>
-<li>git checkout – [file]</li>
-</ul>
-<h3 id="Git远程仓库"><a href="#Git远程仓库" class="headerlink" title="Git远程仓库"></a>Git远程仓库</h3><ul>
-<li><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code><ul>
-<li>本地生成SSH Key，用于远程操控免密</li>
+<li><code>git branch --set-upstream-to=remote_git_name/remote_branch_name</code><ul>
+<li>将当前分支关联到远程分支上，如此在这个分支下的git push和pull都能直接推送到这个分支上</li>
 </ul>
 </li>
-<li>git remote <ul>
-<li>远程相关命令 具体可以看提示来使用</li>
-<li><code>git remote add origin git@github.com:xxxx@xxx.xxx</code></li>
-</ul>
-</li>
-<li>git push <ul>
-<li>本地库内容推送到远程 </li>
-<li>-u 参数可以把本地内容推送过去，并且联系两个参赛，自己感受感受,一般都是第一次推送使用。</li>
-</ul>
-</li>
-<li>git clone <ul>
-<li>从远程库克隆</li>
+<li><code>git branch -a</code><ul>
+<li>查看远程分支</li>
 </ul>
 </li>
 </ul>
-<h3 id="Git分支管理"><a href="#Git分支管理" class="headerlink" title="Git分支管理"></a>Git分支管理</h3><ul>
-<li>git branch<ul>
-<li>查看分支</li>
+<h2 id="git如何修改已提交的commit"><a href="#git如何修改已提交的commit" class="headerlink" title="git如何修改已提交的commit"></a>git如何修改已提交的commit</h2><h3 id="本地修改-修改最近一次"><a href="#本地修改-修改最近一次" class="headerlink" title="本地修改-修改最近一次"></a>本地修改-修改最近一次</h3><ul>
+<li><code>git commit --amend</code><ul>
+<li>修改最近一次的commmit</li>
+<li>使用后会进入最近的一个文本编辑器可以修改描述内容</li>
 </ul>
 </li>
-<li>git branch [name]<ul>
-<li>创建分支</li>
-</ul>
-</li>
-<li>git checkout [name] / git switch [name]<ul>
-<li>切换</li>
-</ul>
-</li>
-<li>git checkout -b [name] / git switch -c [name]<ul>
-<li>创建并切换</li>
-</ul>
-</li>
-<li>git merge [name]<ul>
-<li>合并某分支到当前分支</li>
-</ul>
-</li>
-<li>git branch -d [name]<ul>
-<li>删除分支</li>
-<li><code>-D</code>强行删除</li>
-</ul>
-</li>
-<li>分支冲突</li>
-<li>git stash<ul>
-<li>工作储藏相关命令</li>
-<li>git stash list</li>
-<li>git stash apply</li>
-<li>git stash drop</li>
-<li>git stash pop</li>
-</ul>
-</li>
-<li>git cherry-pick [commit]<ul>
-<li>把其他提交的命令复制到当前分支，避免重复劳动</li>
-</ul>
-</li>
-<li>git pull<ul>
-<li>从远程库拉取至本地并合并</li>
-</ul>
-</li>
-<li>git rebase</li>
-</ul>
-<h3 id="git标签管理"><a href="#git标签管理" class="headerlink" title="git标签管理"></a>git标签管理</h3><ul>
-<li>git tag [name]<ul>
-<li>给当前分支打上标签</li>
-</ul>
-</li>
-<li>git tag <ul>
-<li>查看所有标签</li>
-</ul>
-</li>
-<li>git tag [name] [commit_id]<ul>
-<li>给commit_id打上标签</li>
-</ul>
-</li>
-<li>git show [tag_name]<ul>
-<li>查看标签信息</li>
-</ul>
-</li>
-<li>git tag -d [tag_name]<ul>
-<li>删除标签</li>
-</ul>
-</li>
-<li>git push origin [tag_name]<ul>
-<li>推送标签到远程</li>
-</ul>
-</li>
-<li>git push origin :refs/tags/[tag_name]<ul>
-<li>删除远程标签</li>
+<li><pre><code>git add &lt;filename&gt; 
+git commit --amend</code></pre><ul>
+<li>修改提交的文件</li>
 </ul>
 </li>
 </ul>
-<h3 id="gitignore文件配置"><a href="#gitignore文件配置" class="headerlink" title=".gitignore文件配置"></a>.gitignore文件配置</h3><ul>
-<li>用的时候在网上找吧</li>
+<h3 id="本地修改-修改任意提交历史位置Commit"><a href="#本地修改-修改任意提交历史位置Commit" class="headerlink" title="本地修改-修改任意提交历史位置Commit"></a>本地修改-修改任意提交历史位置Commit</h3><ul>
+<li>参考URL <a href="https://github.com/uolcano/blog/issues/12" target="_blank" rel="noopener">https://github.com/uolcano/blog/issues/12</a><ul>
+<li>修改commit</li>
+<li>本地回退等</li>
 </ul>
-<h3 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h3><ul>
-<li>git config –global user.name</li>
-<li>git config –global user.email </li>
+</li>
+<li>可以通过变基命令，修改最近一次提交以前的某次提交。不过修改的提交到当前提交之间的所有提交的hash值都会改变。<br>变基操作需要非常小心，一定要多用git status命令来查看你是否还处于变基操作，可能某次误操作的会对后面的提交历史造成很大影响。</li>
+<li><code>git log</code></li>
+<li><code>git rebase -i &lt;commit range&gt;</code><ul>
+<li><strong>注意</strong>:变基命令打开的文本编辑器中的commit顺序跟git log查看的顺序是相反的，也就是最近的提交在下面，老旧的提交在上面</li>
+<li><strong>注意</strong>:变基命令其实可以同时对多个提交进行修改，只需要修改将对应行前的pick都修改为edit，保存退出后会根据你修改的数目多次打开修改某次commit的文本编辑器界面。但是这个范围内的最终祖先commit不能修改，也就是如果有5行commit信息，你只能修改下面4行的，这不仅限于commit修改，重排、删除以及合并都如此。</li>
+</ul>
+</li>
+<li><code>git commit --amend</code><ul>
+<li>提交</li>
+</ul>
+</li>
+<li><code>git rebase --continue</code> <ul>
+<li>完成变基操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="远程修改"><a href="#远程修改" class="headerlink" title="远程修改"></a>远程修改</h3><ul>
+<li><code>git push -f &lt;remote&gt; &lt;branch&gt;</code></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sekaiiiii.github.io/2020/09/22/Git%E5%AD%A6%E4%B9%A0/" data-id="ckfdmoxla00002g3tdcm14eao" class="article-share-link">Share</a>
+      <a data-url="http://sekaiiiii.github.io/2020/10/16/Git%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0/" data-id="ckgc19cbt0000p73t2uiag1h6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
@@ -229,19 +167,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/10/16/Git%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Git应用场景学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/22/Mongodb%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/09/22/Git%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Git学习</div>
+      <div class="article-nav-title">Git基础学习</div>
     </a>
   
 </nav>

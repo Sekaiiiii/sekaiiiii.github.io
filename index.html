@@ -68,6 +68,107 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Git应用场景学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/16/Git%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-10-16T08:55:00.000Z" itemprop="datePublished">2020-10-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/16/Git%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0/">Git应用场景学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Git应用场景学习"><a href="#Git应用场景学习" class="headerlink" title="Git应用场景学习"></a>Git应用场景学习</h1><ul>
+<li>这部分blog记录一些Git常用的应用场景以及相关的命令，持续更新。</li>
+</ul>
+<h2 id="远程创建分支，关联本地分支到远程分支"><a href="#远程创建分支，关联本地分支到远程分支" class="headerlink" title="远程创建分支，关联本地分支到远程分支"></a>远程创建分支，关联本地分支到远程分支</h2><ul>
+<li><code>git remote add remote_git_name remote_git_address</code><ul>
+<li>添加远程库，为远程库命名</li>
+</ul>
+</li>
+<li><code>git branch -d local_branch_name</code><ul>
+<li>创建并切换至本地分支</li>
+</ul>
+</li>
+<li><code>git push remote_git_name local_branch_name:remote_branch_name</code><ul>
+<li>将本地分支推送至远程分支上，如果没有指定remote_branch_name则推送该分支默认关联的分支</li>
+<li>如果在git上不存在名为remote_branch_name的分支，则自动创建名为remote_branch_name的分支</li>
+</ul>
+</li>
+<li><code>git branch --set-upstream-to=remote_git_name/remote_branch_name</code><ul>
+<li>将当前分支关联到远程分支上，如此在这个分支下的git push和pull都能直接推送到这个分支上</li>
+</ul>
+</li>
+<li><code>git branch -a</code><ul>
+<li>查看远程分支</li>
+</ul>
+</li>
+</ul>
+<h2 id="git如何修改已提交的commit"><a href="#git如何修改已提交的commit" class="headerlink" title="git如何修改已提交的commit"></a>git如何修改已提交的commit</h2><h3 id="本地修改-修改最近一次"><a href="#本地修改-修改最近一次" class="headerlink" title="本地修改-修改最近一次"></a>本地修改-修改最近一次</h3><ul>
+<li><code>git commit --amend</code><ul>
+<li>修改最近一次的commmit</li>
+<li>使用后会进入最近的一个文本编辑器可以修改描述内容</li>
+</ul>
+</li>
+<li><pre><code>git add &lt;filename&gt; 
+git commit --amend</code></pre><ul>
+<li>修改提交的文件</li>
+</ul>
+</li>
+</ul>
+<h3 id="本地修改-修改任意提交历史位置Commit"><a href="#本地修改-修改任意提交历史位置Commit" class="headerlink" title="本地修改-修改任意提交历史位置Commit"></a>本地修改-修改任意提交历史位置Commit</h3><ul>
+<li>参考URL <a href="https://github.com/uolcano/blog/issues/12" target="_blank" rel="noopener">https://github.com/uolcano/blog/issues/12</a><ul>
+<li>修改commit</li>
+<li>本地回退等</li>
+</ul>
+</li>
+<li>可以通过变基命令，修改最近一次提交以前的某次提交。不过修改的提交到当前提交之间的所有提交的hash值都会改变。<br>变基操作需要非常小心，一定要多用git status命令来查看你是否还处于变基操作，可能某次误操作的会对后面的提交历史造成很大影响。</li>
+<li><code>git log</code></li>
+<li><code>git rebase -i &lt;commit range&gt;</code><ul>
+<li><strong>注意</strong>:变基命令打开的文本编辑器中的commit顺序跟git log查看的顺序是相反的，也就是最近的提交在下面，老旧的提交在上面</li>
+<li><strong>注意</strong>:变基命令其实可以同时对多个提交进行修改，只需要修改将对应行前的pick都修改为edit，保存退出后会根据你修改的数目多次打开修改某次commit的文本编辑器界面。但是这个范围内的最终祖先commit不能修改，也就是如果有5行commit信息，你只能修改下面4行的，这不仅限于commit修改，重排、删除以及合并都如此。</li>
+</ul>
+</li>
+<li><code>git commit --amend</code><ul>
+<li>提交</li>
+</ul>
+</li>
+<li><code>git rebase --continue</code> <ul>
+<li>完成变基操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="远程修改"><a href="#远程修改" class="headerlink" title="远程修改"></a>远程修改</h3><ul>
+<li><code>git push -f &lt;remote&gt; &lt;branch&gt;</code></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sekaiiiii.github.io/2020/10/16/Git%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0/" data-id="ckgc19cbt0000p73t2uiag1h6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Git学习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/22/Git%E5%AD%A6%E4%B9%A0/" class="article-date">
@@ -82,7 +183,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/22/Git%E5%AD%A6%E4%B9%A0/">Git学习</a>
+      <a class="article-title" href="/2020/09/22/Git%E5%AD%A6%E4%B9%A0/">Git基础学习</a>
     </h1>
   
 
@@ -220,6 +321,136 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://sekaiiiii.github.io/2020/09/22/Git%E5%AD%A6%E4%B9%A0/" data-id="ckfdmoxla00002g3tdcm14eao" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Mongodb基础学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/22/Mongodb%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-09-22T12:00:00.000Z" itemprop="datePublished">2020-09-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/22/Mongodb%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">Git学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h3><ul>
+<li><p>数据库</p>
+<ul>
+<li>use <strong>database</strong></li>
+<li>show dbs</li>
+<li><strong>db</strong>.dropDatabase()</li>
+</ul>
+</li>
+<li><p>集合操作  </p>
+<ul>
+<li>db.<strong>collection</strong>.drop()</li>
+<li>db.createCollection(name,options)</li>
+<li>show tables/show collections</li>
+</ul>
+</li>
+<li><p>文档操作</p>
+<ul>
+<li>db.<strong>collection</strong> .insert(document)</li>
+<li><del>db.<strong>collection</strong>.save(document)</del><ul>
+<li>db.<strong>collection</strong>.insertOne()/db.collection.replaceOne()</li>
+</ul>
+</li>
+<li>db.<strong>collection</strong>.insertMany([document1,document2],options)</li>
+<li>db.<strong>collection</strong>.update(query,update,options)</li>
+<li>db.<strong>collection</strong>.remove(query,options)</li>
+<li>db.<strong>collection</strong>.find(query,projection)<ul>
+<li>.pretty() 以可读方式读取</li>
+<li>.limit(number)</li>
+<li>.skip(number)</li>
+<li>.sort({key:1/-1})</li>
+</ul>
+</li>
+<li>db.<strong>collection</strong>.findOne(query)</li>
+</ul>
+</li>
+<li><p>比较语句</p>
+<ul>
+<li>{key:{opt:value}}</li>
+<li>lt</li>
+<li>lte</li>
+<li>gt</li>
+<li>gte</li>
+<li>ne</li>
+</ul>
+</li>
+<li><p>逻辑语句</p>
+<ul>
+<li>{key1:value1, key2:value2}</li>
+<li>{$or: [{key1: value1}, {key2:value2}]}</li>
+</ul>
+</li>
+<li><p>条件操作符</p>
+<ul>
+<li><p>$type</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Double	1	 </span><br><span class="line">String	2	 </span><br><span class="line">Object	3	 </span><br><span class="line">Array	4	 </span><br><span class="line">Binary data	5	 </span><br><span class="line">Undefined	6	已废弃。</span><br><span class="line">Object id	7	 </span><br><span class="line">Boolean	8	 </span><br><span class="line">Date	9	 </span><br><span class="line">Null	10	 </span><br><span class="line">Regular Expression	11	 </span><br><span class="line">JavaScript	13	 </span><br><span class="line">Symbol	14	 </span><br><span class="line">JavaScript (with scope)	15	 </span><br><span class="line">32-bit integer	16	 </span><br><span class="line">Timestamp	17	 </span><br><span class="line">64-bit integer	18	 </span><br><span class="line">Min key	255	Query with -1.</span><br><span class="line">Max key	127</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>索引</p>
+<ul>
+<li>db.<strong>collection</strong>.createIndex(keys,options)</li>
+</ul>
+</li>
+<li><p>聚合</p>
+<ul>
+<li>db.<strong>collection</strong>.aggregate()<ul>
+<li><code>db.mycol.aggregate([{$group : {_id : &quot;$by_user&quot;, num_tutorial : {$sum : 1}}}])</code></li>
+</ul>
+</li>
+<li>聚合的表达式<ul>
+<li>$sum</li>
+<li>$avg</li>
+<li>$min</li>
+<li>$push</li>
+<li>$addToSet</li>
+<li>$first</li>
+<li>$last</li>
+</ul>
+</li>
+<li>聚合常用管道操作<ul>
+<li>$project</li>
+<li>$match</li>
+<li>$limit</li>
+<li>$skop</li>
+<li>$unwind</li>
+<li>$group</li>
+<li>$sort</li>
+<li>$geoNear</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="MongoDB复制"><a href="#MongoDB复制" class="headerlink" title="MongoDB复制"></a>MongoDB复制</h3><h3 id="MongoDB分片"><a href="#MongoDB分片" class="headerlink" title="MongoDB分片"></a>MongoDB分片</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sekaiiiii.github.io/2020/09/22/Mongodb%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" data-id="ckgc19cc00002p73t0yqf4bmq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
@@ -571,7 +802,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ARM/" style="font-size: 20px;">ARM</a> <a href="/tags/GDB/" style="font-size: 10px;">GDB</a> <a href="/tags/GNU/" style="font-size: 10px;">GNU</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" style="font-size: 20px;">汇编语言</a>
+      <a href="/tags/ARM/" style="font-size: 20px;">ARM</a> <a href="/tags/GDB/" style="font-size: 10px;">GDB</a> <a href="/tags/GNU/" style="font-size: 10px;">GNU</a> <a href="/tags/Git/" style="font-size: 20px;">Git</a> <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" style="font-size: 20px;">汇编语言</a>
     </div>
   </div>
 
@@ -580,7 +811,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
     </div>
   </div>
 
@@ -593,7 +824,15 @@
       <ul>
         
           <li>
-            <a href="/2020/09/22/Git%E5%AD%A6%E4%B9%A0/">Git学习</a>
+            <a href="/2020/10/16/Git%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0/">Git应用场景学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/22/Git%E5%AD%A6%E4%B9%A0/">Git基础学习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/22/Mongodb%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">Git学习</a>
           </li>
         
           <li>
@@ -602,10 +841,6 @@
         
           <li>
             <a href="/2020/07/16/%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E6%B1%87%E6%80%BB/">ARM汇编常用指令</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/16/%E6%8C%87%E4%BB%A4%E4%BB%A5%E5%8F%8A%E6%8C%87%E4%BB%A4%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F/">ARM汇编寻址方式</a>
           </li>
         
       </ul>
